@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Tool</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #0f0;
+            font-family: monospace;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 28px;
+            color: #0ff;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 22px;
+            color: #0f0;
+            margin-top: 30px;
+        }
+        a {
+            color: #00f;
+            text-decoration: none;
+            font-size: 18px;
+            display: block;
+            margin: 15px auto;
+            padding: 10px;
+            background-color: #222;
+            border-radius: 5px;
+            width: 80%;
+            max-width: 300px;
+        }
+        a:hover {
+            background-color: #444;
+            color: #0ff;
+        }
+        p {
+            font-size: 16px;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <h1>Web Tool</h1>
+    <p>Click the links below to launch intents. Start with primaries, then backups if needed.</p>
+    <h2>Primary Intents</h2>
+    <a href="javascript:launchIntent('intent://com.google.android.setupwizard/com.google.android.setupwizard.GoogleSetupWizardActivity#Intent;action=android.intent.action.MAIN;S.android.intent.extra.USER_SETUP_COMPLETE=true;end')">Launch Google Setup Wizard</a>
+    <a href="javascript:launchIntent('intent://settings/accounts#Intent;action=android.settings.ADD_ACCOUNT_SETTINGS;package=com.android.settings;S.android.intent.extra.USER_SETUP_COMPLETE=true;end')">Add New Account</a>
+    <a href="javascript:launchIntent('intent://com.google.android.gsf/com.google.android.gsf.settings.GoogleSettingsActivity#Intent;action=android.intent.action.VIEW;S.android.intent.extra.USER_SETUP_COMPLETE=true;end')">Google Settings (Manage Accounts)</a>
+    <h2>Backup Intents</h2>
+    <a href="javascript:launchIntent('intent://settings/development#Intent;action=android.settings.APPLICATION_DEVELOPMENT_SETTINGS;package=com.android.settings;S.android.intent.extra.USER_SETUP_COMPLETE=true;end')">Developer Settings (USB Debugging)</a>
+    <a href="javascript:launchIntent('intent://settings/wizard#Intent;action=android.settings.SETUP_WIZARD_SETTINGS;package=com.android.settings;S.android.intent.extra.USER_SETUP_COMPLETE=true;end')">Setup Wizard Settings</a>
+    <p style="margin-top: 40px; font-size: 14px;">Note: If a link doesn’t work, try the next one. Allow popups for this site if prompted. Some intents may be blocked on certain devices.</p>
+    <script>
+        function launchIntent(intentUrl) {
+            setTimeout(function() {
+                window.open(intentUrl, '_blank');
+            }, 1000); // 1-second delay to avoid detection
+        }
+    </script>
+</body>
+      </html>
